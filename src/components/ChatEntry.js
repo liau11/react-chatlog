@@ -12,14 +12,14 @@ const ChatEntry = (props) => {
 
   const likeStatus = isLiked ? '❤️' : '🤍';
 
-  let entryLocation = 'chat-entry remote';
+  let entryStyle = 'chat-entry remote';
 
   if (props.sender === 'Vladimir') {
-    entryLocation = 'chat-entry local';
+    entryStyle = 'chat-entry local';
   }
 
   return (
-    <div className={entryLocation}>
+    <div className={entryStyle}>
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
