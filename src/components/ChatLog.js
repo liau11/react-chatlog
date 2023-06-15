@@ -2,16 +2,16 @@ import ChatEntry from './ChatEntry';
 
 
 
-const ChatLog = ({ messages }) => {
-
+const ChatLog = ({ entries, pressLike }) => {
     return (
         <div>
-            {messages.map((message, index) => (
+            {entries.map((entry, index) => (
                 <ChatEntry
                     key={index}
-                    sender={message.sender}
-                    body={message.body}
-                    timeStamp={message.timeStamp}
+                    sender={entry.sender}
+                    body={entry.body}
+                    timeStamp={entry.timeStamp}
+                    changeLike={pressLike}
                 />
             ))}
         </ div >
