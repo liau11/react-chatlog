@@ -6,15 +6,15 @@ import ChatLog from './components/ChatLog';
 const App = () => {
   const [likeCount, setLikeCount] = useState(0);
 
-  const likeCounter = () => {
-    setLikeCount(likeCount + 1);
+  const likeCounter = (unlike) => {
+    setLikeCount(unlike ? likeCount - 1 : likeCount + 1);
   };
 
   return (
     <div id="App">
       <header>
         <h1>Chat between Vladimir and Estragon</h1>
-        <p>{likeCount}</p>
+        <p>{likeCount} ❤️s</p>
       </header>
       <main>
         <ChatLog entries={chatMessages} pressLike={likeCounter} />
