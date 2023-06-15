@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
-  const [like, changeLikeStatus] = useState(false);
+  const [isLiked, changeLikeStatus] = useState(false);
 
   const toggleLike = () => {
-    changeLikeStatus(!like)
+    changeLikeStatus(!isLiked)
   }
 
-  const likeStatus = like ? '❤️' : '🤍';
+  const likeStatus = isLiked ? '❤️' : '🤍';
 
   let entryLocation = 'chat-entry remote';
 
@@ -24,7 +24,7 @@ const ChatEntry = (props) => {
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time"><TimeStamp timeStamp={props.timeStamp} /></p>
-        <button className="like" onClick={event => { toggleLike(); props.changeLike(like); }}>{likeStatus}</button>
+        <button className="like" onClick={event => { toggleLike(); props.changeLike(isLiked); }}>{likeStatus}</button>
       </section>
     </div >
   );
