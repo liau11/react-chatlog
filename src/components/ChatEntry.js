@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
-  const [like, pressLike] = useState(false);
+  const [like, changeLikeStatus] = useState(false);
 
   const toggleLike = () => {
-    pressLike(!like)
+    changeLikeStatus(!like)
   }
 
-  const heartColor = like ? '❤️' : '🤍';
+  const likeStatus = like ? '❤️' : '🤍';
 
   return (
     <div className="chat-entry local">
@@ -18,9 +18,9 @@ const ChatEntry = (props) => {
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time"><TimeStamp timeStamp={props.timeStamp} /></p>
-        <button className="like" onClick={toggleLike}>{heartColor}</button>
+        <button className="like" onClick={event => { toggleLike(); props.changeLike(); }}>{likeStatus}</button>
       </section>
-    </div>
+    </div >
   );
 };
 ChatEntry.propTypes = {
