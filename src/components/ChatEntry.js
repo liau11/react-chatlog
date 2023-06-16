@@ -20,7 +20,7 @@ const ChatEntry = (props) => {
 
   return (
     <div className={entryStyle}>
-      <h2 className="entry-name">{props.sender}</h2>
+      <h2 className={props.sender === props.localSender ? props.localColor : props.remoteColor}>{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time"><TimeStamp timeStamp={props.timeStamp} /></p>

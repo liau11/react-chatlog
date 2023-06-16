@@ -2,7 +2,7 @@ import ChatEntry from './ChatEntry';
 
 
 
-const ChatLog = ({ entries, pressLike }) => {
+const ChatLog = ({ entries, localColor, localSender, remoteColor, pressLike }) => {
     return (
         <div>
             {entries.map((entry, index) => (
@@ -12,6 +12,9 @@ const ChatLog = ({ entries, pressLike }) => {
                     body={entry.body}
                     timeStamp={entry.timeStamp}
                     changeLike={pressLike}
+                    localColor={localColor}
+                    remoteColor={remoteColor}
+                    localSender={localSender}
                 />
             ))}
         </ div >
