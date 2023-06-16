@@ -35,7 +35,7 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>Chat between {localSender} and {remoteSender}</h1>
+        <h1>Chat between <span className={localColor}>{localSender}</span> and <span className={remoteColor}>{remoteSender}</span></h1>
         <section>
           <div className='colorSelector'>
             <div>
