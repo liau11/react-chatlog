@@ -34,7 +34,7 @@ ChatLog.propTypes = {
     localColor: PropTypes.string,
     localSender: PropTypes.string,
     remoteColor: PropTypes.string,
-    pressLike: PropTypes.func
+    changeLike: PropTypes.func
 }
 
 export default ChatLog;
