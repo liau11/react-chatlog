@@ -15,7 +15,7 @@ const ChatEntry = (props) => {
   const likeStatus = isLiked ? '❤️' : '🤍';
 
   let entryStyle = 'chat-entry remote';
-  if (props.sender === 'Vladimir') {
+  if (props.sender === props.localSender) {
     entryStyle = 'chat-entry local';
   }
 
