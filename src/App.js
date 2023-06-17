@@ -6,19 +6,19 @@ import ColorChoice from './components/ColorChoice';
 
 
 const App = () => {
-  // Likes
+  // Update likeCount
   const [likeCount, setLikeCount] = useState(0);
   const likeCounter = (unlike) => {
     setLikeCount(unlike ? likeCount - 1 : likeCount + 1);
   };
 
-  // Color
+  // Update color
   const [color, setColor] = useState({ local: 'blue', remote: 'green' })
   const changeColor = (sender, newColor) => {
     setColor(prevColor => ({ ...prevColor, [sender]: newColor }));
   }
 
-  // Sender
+  // Assign which senders are localSender and remoteSender
   const localSender = chatMessages[0]['sender'];
   let remoteSender = '';
   for (const entry of chatMessages) {
