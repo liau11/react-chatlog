@@ -8,9 +8,6 @@ import ColorChoice from './components/ColorChoice';
 const App = () => {
   // Update likeCount
   const [likeCount, setLikeCount] = useState(0);
-  const likeCounter = (unlike) => {
-    setLikeCount(unlike ? likeCount - 1 : likeCount + 1);
-  };
 
   // Update color
   const [color, setColor] = useState({ local: 'blue', remote: 'green' })
@@ -47,7 +44,12 @@ const App = () => {
         </section>
       </header>
       <main>
-        <ChatLog entries={chatMessages} localSender={localSender} localColor={color.local} remoteColor={color.remote} pressLike={likeCounter} />
+        <ChatLog 
+          entries={chatMessages}
+          localSender={localSender} 
+          localColor={color.local} 
+          remoteColor={color.remote} 
+          pressLike={ unlike => setLikeCount(unlike ? likeCount - 1 : likeCount + 1) }/>
       </main>
     </div>
   );
