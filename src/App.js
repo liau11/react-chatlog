@@ -5,18 +5,19 @@ import ChatLog from './components/ChatLog';
 import ColorChoice from './components/ColorChoice';
 
 const App = () => {
+  // Likes
   const [likeCount, setLikeCount] = useState(0);
-
   const likeCounter = (unlike) => {
     setLikeCount(unlike ? likeCount - 1 : likeCount + 1);
   };
 
+  // Color
   const [color, setColor] = useState({ local: 'blue', remote: 'green' })
-
   const changeColor = (sender, newColor) => {
     setColor(prevColor => ({ ...prevColor, [sender]: newColor }));
   }
 
+  // Sender
   const localSender = chatMessages[0]['sender'];
   let remoteSender = '';
   for (const entry of chatMessages) {
