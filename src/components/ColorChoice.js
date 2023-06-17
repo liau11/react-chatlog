@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types';
+
+
 const ColorChoice = (props) => {
 
     return (
@@ -11,5 +14,9 @@ const ColorChoice = (props) => {
         </section >
     )
 };
+
+ColorChoice.prototype = {
+    setColorCallback: PropTypes.func
+}
 
 export default ColorChoice;
