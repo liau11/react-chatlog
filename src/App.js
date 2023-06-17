@@ -37,7 +37,7 @@ const App = () => {
             </div>
             <p id='heartWidget'>{likeCount} ❤️s</p>
             <div>
-              <p className={color.remote}>{color.remote}'s color</p>
+              <p className={color.remote}>{remoteSender}'s color</p>
               <ColorChoice setColorCallback={newColor => changeColor('remote', newColor)} />
             </div>
           </div>
