@@ -11,15 +11,10 @@ const App = () => {
     setLikeCount(unlike ? likeCount - 1 : likeCount + 1);
   };
 
-  const [remoteColor, setRemoteColor] = useState('green')
-  const [localColor, setLocalColor] = useState('blue')
+  const [color, setColor] = useState({ local: 'blue', remote: 'green' })
 
-  const changeRemoteColor = (newColor) => {
-    setRemoteColor(newColor);
-  }
-
-  const changeLocalColor = (newColor) => {
-    setLocalColor(newColor);
+  const changeColor = (sender, newColor) => {
+    setColor(prevColor => ({ ...prevColor, [sender]: newColor }));
   }
 
   const localSender = chatMessages[0]['sender'];
@@ -31,28 +26,27 @@ const App = () => {
     }
   }
 
-
   return (
     <div id="App">
       <header>
-        <h1>Chat between <span className={localColor}>{localSender}</span> and <span className={remoteColor}>{remoteSender}</span></h1>
+        <h1>Chat between <span className={color.local}>{localSender}</span> and <span className={color.remote}>{remoteSender}</span></h1>
         <section>
           <div className='colorSelector'>
             <div>
-              <p className={localColor}>{localSender}'s color</p>
-              <ColorChoice setColorCallback={changeLocalColor} />
+              <p className={color.local}>{localSender}'s color</p>
+              <ColorChoice setColorCallback={newColor => changeColor('local', newColor)} />
             </div>
             <p id='heartWidget'>{likeCount} ❤️s</p>
             <div>
-              <p className={remoteColor}>{remoteSender}'s color</p>
-              <ColorChoice setColorCallback={changeRemoteColor} />
+              <p className={color.remote}>{color.remote}'s color</p>
+              <ColorChoice setColorCallback={newColor => changeColor('remote', newColor)} />
             </div>
           </div>
         </section>
 
       </header>
       <main>
-        <ChatLog entries={chatMessages} localSender={localSender} localColor={localColor} remoteColor={remoteColor} pressLike={likeCounter} />
+        <ChatLog entries={chatMessages} localSender={localSender} localColor={color.remote} remoteColor={color.remote} pressLike={likeCounter} />
       </main>
     </div>
   );
