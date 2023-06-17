@@ -25,7 +25,7 @@ const ChatEntry = (props) => {
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time"><TimeStamp timeStamp={props.timeStamp} /></p>
-        <button className="like" onClick={() => { toggleLike() }}>{likeStatus}</button>
+        <button className="like" onClick={toggleLike}>{likeStatus}</button>
       </section>
     </div >
   );
