@@ -30,10 +30,13 @@ const ChatEntry = (props) => {
     </div >
   );
 };
+
 ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
+  localSender: PropTypes.string,
+  changeLike: PropTypes.func
 };
 
 export default ChatEntry;
