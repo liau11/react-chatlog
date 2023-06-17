@@ -6,7 +6,7 @@ import ColorChoice from './components/ColorChoice';
 
 
 const App = () => {
-  // Update likeCount
+  // State for total like count 
   const [likeCount, setLikeCount] = useState(0);
 
   // Update color
