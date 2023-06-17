@@ -47,7 +47,7 @@ const App = () => {
 
       </header>
       <main>
-        <ChatLog entries={chatMessages} localSender={localSender} localColor={color.remote} remoteColor={color.remote} pressLike={likeCounter} />
+        <ChatLog entries={chatMessages} localSender={localSender} localColor={color.local} remoteColor={color.remote} pressLike={likeCounter} />
       </main>
     </div>
   );
