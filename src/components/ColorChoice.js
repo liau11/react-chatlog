@@ -15,6 +15,7 @@ const ColorChoice = (props) => {
     )
 };
 
+
 ColorChoice.prototype = {
     setColorCallback: PropTypes.func
 }

@@ -3,6 +3,7 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
+
 const ChatEntry = (props) => {
   const [isLiked, changeLikeStatus] = useState(false);
 
@@ -14,7 +15,6 @@ const ChatEntry = (props) => {
   const likeStatus = isLiked ? '❤️' : '🤍';
 
   let entryStyle = 'chat-entry remote';
-
   if (props.sender === 'Vladimir') {
     entryStyle = 'chat-entry local';
   }
@@ -30,6 +30,7 @@ const ChatEntry = (props) => {
     </div >
   );
 };
+
 
 ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,

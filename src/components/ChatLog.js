@@ -2,7 +2,6 @@ import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
 
-
 const ChatLog = ({ entries, localColor, localSender, remoteColor, pressLike }) => {
     return (
         <div>
@@ -21,6 +20,7 @@ const ChatLog = ({ entries, localColor, localSender, remoteColor, pressLike }) =
         </ div >
     )
 };
+
 
 ChatLog.propTypes = {
     entries: PropTypes.arrayOf(

@@ -4,6 +4,7 @@ import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
 import ColorChoice from './components/ColorChoice';
 
+
 const App = () => {
   // Likes
   const [likeCount, setLikeCount] = useState(0);
@@ -44,7 +45,6 @@ const App = () => {
             </div>
           </div>
         </section>
-
       </header>
       <main>
         <ChatLog entries={chatMessages} localSender={localSender} localColor={color.local} remoteColor={color.remote} pressLike={likeCounter} />
