@@ -1,4 +1,5 @@
 import ChatEntry from './ChatEntry';
+import PropTypes from 'prop-types';
 
 
 
@@ -20,5 +21,20 @@ const ChatLog = ({ entries, localColor, localSender, remoteColor, pressLike }) =
         </ div >
     )
 };
+
+ChatLog.propTypes = {
+    entries: PropTypes.arrayOf(
+        PropTypes.shape({
+            key: PropTypes.number.isRequired,
+            sender: PropTypes.string.isRequired,
+            body: PropTypes.string.isRequired,
+            timeStamp: PropTypes.string.isRequired,
+        })
+    ),
+    localColor: PropTypes.string,
+    localSender: PropTypes.string,
+    remoteColor: PropTypes.string,
+    pressLike: PropTypes.func
+}
 
 export default ChatLog;
