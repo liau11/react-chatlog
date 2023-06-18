@@ -6,11 +6,28 @@ import ColorChoice from './components/ColorChoice';
 
 
 const App = () => {
+  // Update messages when like button is toggled
+  const [messages, setMessages] = useState(chatMessages);
+
+  const updateChat = (entryId) => {
+
+    const updateMessages = chatMessages.map(message => {
+      if (message.id === entryId) {
+        message.liked = !message.liked;
+      };
+      
+      return {...message}
+    });
+
+    setMessages(updateMessages);
+  }
+
   // State for total like count 
   const [likeCount, setLikeCount] = useState(0);
 
   // Update color
   const [color, setColor] = useState({ local: 'blue', remote: 'green' })
+
   const changeColor = (sender, newColor) => {
     setColor(prevColor => ({ ...prevColor, [sender]: newColor }));
   }
@@ -49,7 +66,9 @@ const App = () => {
           localSender={localSender} 
           localColor={color.local} 
           remoteColor={color.remote} 
-          pressLike={ unlike => setLikeCount(unlike ? likeCount - 1 : likeCount + 1) }/>
+          pressLike={ (unlike, entryId) => {
+            setLikeCount(unlike ? likeCount - 1 : likeCount + 1); 
+            updateChat(entryId);  }}/>
       </main>
     </div>
   );
