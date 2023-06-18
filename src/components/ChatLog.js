@@ -7,6 +7,7 @@ const ChatLog = ({ entries, localColor, localSender, remoteColor, pressLike }) =
         <div>
             {entries.map((entry) => (
                 <ChatEntry
+                    key={entry.id}
                     id={entry.id}
                     sender={entry.sender}
                     body={entry.body}
@@ -30,7 +31,7 @@ ChatLog.propTypes = {
             sender: PropTypes.string.isRequired,
             body: PropTypes.string.isRequired,
             timeStamp: PropTypes.string.isRequired,
-            liked:PropTypes.bool.isRequired
+            liked: PropTypes.bool.isRequired
         })
     ),
     localColor: PropTypes.string,
