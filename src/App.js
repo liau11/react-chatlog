@@ -6,6 +6,7 @@ import ColorChoice from './components/ColorChoice';
 
 
 const App = () => {
+  
   // Update messages when like button is toggled
   const [messages, setMessages] = useState(chatMessages);
 
@@ -15,7 +16,7 @@ const App = () => {
       if (message.id === entryId) {
         message.liked = !message.liked;
       };
-      
+
       return {...message}
     });
 
@@ -68,7 +69,9 @@ const App = () => {
           remoteColor={color.remote} 
           pressLike={ (unlike, entryId) => {
             setLikeCount(unlike ? likeCount - 1 : likeCount + 1); 
-            updateChat(entryId);  }}/>
+            updateChat(entryId); 
+            }
+          }/>
       </main>
     </div>
   );
