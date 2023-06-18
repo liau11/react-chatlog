@@ -9,7 +9,7 @@ const ChatEntry = (props) => {
   const [isLiked, changeLikeStatus] = useState(false);
   const toggleLike = () => {
     changeLikeStatus(!isLiked)
-    props.changeLike(isLiked);
+    props.changeLike(isLiked, props.id);
   }
 
   const likeStatus = isLiked ? '❤️' : '🤍';
@@ -34,9 +34,11 @@ const ChatEntry = (props) => {
 
 
 ChatEntry.propTypes = {
+  id: PropTypes.number.isRequired,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
+  liked: PropTypes.bool.isRequired,
   localSender: PropTypes.string,
   changeLike: PropTypes.func
 };

@@ -5,12 +5,13 @@ import PropTypes from 'prop-types';
 const ChatLog = ({ entries, localColor, localSender, remoteColor, pressLike }) => {
     return (
         <div>
-            {entries.map((entry, index) => (
+            {entries.map((entry) => (
                 <ChatEntry
-                    key={index}
+                    id={entry.id}
                     sender={entry.sender}
                     body={entry.body}
                     timeStamp={entry.timeStamp}
+                    liked={entry.liked}
                     changeLike={pressLike}
                     localColor={localColor}
                     remoteColor={remoteColor}
@@ -25,10 +26,11 @@ const ChatLog = ({ entries, localColor, localSender, remoteColor, pressLike }) =
 ChatLog.propTypes = {
     entries: PropTypes.arrayOf(
         PropTypes.shape({
-            key: PropTypes.number.isRequired,
+            id: PropTypes.number.isRequired,
             sender: PropTypes.string.isRequired,
             body: PropTypes.string.isRequired,
             timeStamp: PropTypes.string.isRequired,
+            liked:PropTypes.bool.isRequired
         })
     ),
     localColor: PropTypes.string,
