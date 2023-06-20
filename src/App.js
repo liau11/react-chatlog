@@ -13,10 +13,13 @@ const App = () => {
   const updateChat = (entryId) => {
     const updateMessages = messages.map(message => {
       if (message.id === entryId) {
-        message.liked = !message.liked;
+        return {
+          ...message,
+          liked: !message.liked
+        }
       };
 
-      return { ...message }
+      return message
     });
 
     setMessages(updateMessages);
