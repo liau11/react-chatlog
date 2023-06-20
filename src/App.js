@@ -11,7 +11,6 @@ const App = () => {
   const [messages, setMessages] = useState(chatMessages);
 
   const updateChat = (entryId) => {
-
     const updateMessages = messages.map(message => {
       if (message.id === entryId) {
         message.liked = !message.liked;
@@ -23,8 +22,12 @@ const App = () => {
     setMessages(updateMessages);
   }
 
-  // State for total like count 
+  // Update total like count 
   const [likeCount, setLikeCount] = useState(0);
+
+  const updateLikeCount = (unlike) => {
+    setLikeCount(prevCount => unlike ? prevCount - 1 : prevCount + 1)
+  }
 
   // Update color
   const [color, setColor] = useState({ local: 'blue', remote: 'green' })
@@ -36,6 +39,7 @@ const App = () => {
   // Assign which senders are localSender and remoteSender
   const localSender = chatMessages[0]['sender'];
   let remoteSender = '';
+
   for (const entry of chatMessages) {
     if (entry.sender !== localSender) {
       remoteSender = entry.sender;
@@ -68,7 +72,7 @@ const App = () => {
           localColor={color.local}
           remoteColor={color.remote}
           pressLike={(unlike, entryId) => {
-            setLikeCount(unlike ? likeCount - 1 : likeCount + 1);
+            updateLikeCount(unlike);
             updateChat(entryId);
           }
           } />

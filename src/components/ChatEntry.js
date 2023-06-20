@@ -7,6 +7,7 @@ import TimeStamp from './TimeStamp';
 const ChatEntry = (props) => {
   // Change states of isLiked and likeCount (in Parent component)
   const [isLiked, changeLikeStatus] = useState(false);
+
   const toggleLike = () => {
     changeLikeStatus(!isLiked)
     props.changeLike(isLiked, props.id);
@@ -16,6 +17,7 @@ const ChatEntry = (props) => {
 
   // Assign classNames based on sender
   let entryStyle = 'chat-entry remote';
+
   if (props.sender === props.localSender) {
     entryStyle = 'chat-entry local';
   }
