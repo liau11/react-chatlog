@@ -74,7 +74,7 @@ const App = () => {
           localSender={localSender}
           localColor={color.local}
           remoteColor={color.remote}
-          pressLike={(unlike, entryId) => {
+          changeLike={(unlike, entryId) => {
             updateLikeCount(unlike);
             updateChat(entryId);
           }
@@ -85,4 +85,3 @@ const App = () => {
 };
 
 export default App;
-

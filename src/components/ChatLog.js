@@ -2,7 +2,7 @@ import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
 
-const ChatLog = ({ entries, localColor, localSender, remoteColor, pressLike }) => {
+const ChatLog = ({ entries, localColor, localSender, remoteColor, changeLike }) => {
     return (
         <div>
             {entries.map((entry) => (
@@ -13,7 +13,7 @@ const ChatLog = ({ entries, localColor, localSender, remoteColor, pressLike }) =
                     body={entry.body}
                     timeStamp={entry.timeStamp}
                     liked={entry.liked}
-                    changeLike={pressLike}
+                    changeLike={changeLike}
                     localColor={localColor}
                     remoteColor={remoteColor}
                     localSender={localSender}

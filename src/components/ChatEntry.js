@@ -6,7 +6,7 @@ import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
   // Change states of isLiked and likeCount (in Parent component)
-  const [isLiked, changeLikeStatus] = useState(false);
+  const [isLiked, changeLikeStatus] = useState(props.liked);
 
   const toggleLike = () => {
     changeLikeStatus(!isLiked)
